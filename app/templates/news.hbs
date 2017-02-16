@@ -1,0 +1,22 @@
+<div style="display: block; width: 50%;float: left">
+    <a href="" {{action "prevPage"}}>&laquo;</a>
+    <ul>
+        {{#each model as |record|}}
+            <li>{{#link-to "news.edit" record.id}}{{moment-format record.publishDate 'DD.MM.YYYY'}}
+                , {{record.title}}{{/link-to}}
+                <span class="{{if record.published "active" "deactive"}}">{{fa-icon "user-secret"}}</span>
+                <span class="{{if record.onCalendar "active" "deactive"}}">{{fa-icon "calendar-check-o"}}</span>
+                <span class="{{if record.speakers "active" "deactive"}}">{{fa-icon "user-plus"}}</span>
+                <span class="{{if record.geo "active" "deactive"}}">{{fa-icon "maps-sign"}}</span>
+                <span class="{{if record.heroes "active" "deactive"}}">{{fa-icon "users"}}</span>
+                <span class="{{if record.hasYoutube "active" "deactive"}}">{{fa-icon "youtube"}}</span>
+                <span class="{{if record.hasText "active" "deactive"}}">{{fa-icon "file-text-o"}}</span>
+                <span class="{{if record.hasAudio "active" "deactive"}}">{{fa-icon "file-audio-o"}}</span>
+                <span class="{{if record.hasYandex "active" "deactive"}}">{{fa-icon "yahoo"}}</span>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+<div style="display: block; width: 45%;position: fixed; top: 25px; right: 25px">
+{{outlet}}
+</div>

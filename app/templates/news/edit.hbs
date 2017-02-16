@@ -1,0 +1,26 @@
+<h2><a href="{{model.originUrl}}">{{model.title}}</a></h2>
+
+<h4>{{moment-format model.publishDate "DD.MM.YYYY"}}</h4>
+<form {{action "save" model on="submit"}}>
+    Опубликовано: {{input type="checkbox" name="published" checked=model.published}}<br/>
+    Охватываемый период: {{pikaday-input value=model.startDate format='DD.MM.YYYY' }} -
+    {{pikaday-input value=model.finishDate format='DD.MM.YYYY' }}
+    {{#power-select-multiple options=allSpeakers placeholder="Спикеры"
+                             selected=model.speakers onchange=(action "speakerChanged") as |name|}}
+        {{name}}
+    {{/power-select-multiple}}
+
+    {{#power-select-multiple options=allHeroes  placeholder="Персоны"
+                             selected=model.heroes onchange=(action "heroesChanged") as |hero|}}
+        {{hero}}
+    {{/power-select-multiple}}
+    {{#power-select-multiple options=allHeroes  placeholder="Субъекты"
+                             selected=model.geoSubjects onchange=(action "subjectsChanged") as |subject|}}
+        {{subject}}
+    {{/power-select-multiple}}
+    Код видео в youtube{{input value=model.youtubeLink id="youtubeLink"}}<br/>
+    Ссылка на текст{{input value=model.textLink id="textLink"}}<br/>
+    Ссылка на аудио{{input value=model.audioLink id="audioLink"}}<br/>
+    Ссылка на yandex{{input value=model.yandexLink id="yandexLink"}}<br/>
+    <button>Post</button>
+</form>

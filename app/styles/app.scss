@@ -1,0 +1,15 @@
+@import "power-select";
+
+body {
+  $main-color: gold;
+  h2 {
+    color: $main-color;
+  }
+
+  .active {
+    color: darkgreen;
+  }
+  .deactive {
+    color: #9e9e9e;
+  }
+}

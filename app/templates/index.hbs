@@ -1,0 +1,13 @@
+{{#link-to "news"}}Управление новостями{{/link-to}}
+
+
+{{#power-select options=names selected=value onchange=(action "foo") as |name|}}
+  {{name}}
+{{/power-select}}
+
+{{start-search}}
+
+{{moment-format '12-25-1995' 'MM/DD/YYYY' 'MM-DD-YYYY'}}
+{{date-picker date=mydate valueFormat='DD.MM.YYYY'}}
+
+{{outlet}}
